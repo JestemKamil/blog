@@ -17,7 +17,9 @@ CREATE TABLE IF NOT EXISTS Posts (
 );`)
 app.set("view engine", "ejs")
 app.get("/", (req,res) => {
+    const posts = db.get("SELECT * FROM Posts")
     res.render("index")
+    console.log(posts)
 })
 
 app.get("/users", (req,res) => {
