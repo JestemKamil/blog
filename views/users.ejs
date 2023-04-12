@@ -1,3 +1,30 @@
 <%- include("header.ejs") %>
 
+<form action="/add" method="POST">
+    <input type="text" name="name" placeholder="Nazwa użytkownika">
+    <input type="password" name="password" placeholder="Hasło">
+    <button type="submit" class="btn waves-effect waves-light">Dodaj</button>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nazwa</th>
+      <th>Operacje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (let i = 0; i < users.length; i++) { %>
+    <tr>
+
+      <td><%= users[i].id %></td> 
+      <td><%= users[i].name %></td>
+        <td>
+            <a href="/edit/<%= users[i].id %>" class="btn waves-effect waves-light">Edytuj</a>
+            <a href="/delete/<%= users[i].id %>" class="btn waves-effect waves-light">Usuń</a>
+        </td>
+
+    </tr>
+    <% } %>
+  </tbody>
+
 <%- include("footer.ejs") %>

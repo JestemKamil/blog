@@ -1,3 +1,32 @@
 <%- include("header.ejs") %>
-
+<form action="/addpost" method="POST">
+    <input type="text" name="title" placeholder="Tytuł">
+    <input type="text" name="content" placeholder="Treść">
+    <button type="submit" class="btn waves-effect waves-light">Dodaj</button>
+<table>
+    <thead>
+        <tr>
+        <th>Id</th>
+        <th>Tytuł</th>
+        <th>Treść</th>
+        <th>Autor</th>
+        <th>Operacje</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (let i = 0; i < posts.length; i++) { %>
+        <tr>
+    
+        <td><%= posts[i].id %></td> 
+        <td><%= posts[i].title %></td>
+        <td><%= posts[i].content %></td>
+        <td><%= posts[i].author %></td>
+            <td>
+                <a href="/editpost/<%= posts[i].id %>" class="btn waves-effect waves-light">Edytuj</a>
+                <a href="/deletepost/<%= posts[i].id %>" class="btn waves-effect waves-light">Usuń</a>
+            </td>
+    
+        </tr>
+        <% } %>
+    </tbody>
 <%- include("footer.ejs") %>

@@ -1,3 +1,17 @@
 <%- include("header.ejs") %>
-
+    <% for (let i = 0; i < posts.length; i++) { %>
+  <div class="row center container right">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= posts[i].title %></span>
+          <p><%= posts[i].content %></p>
+        </div>
+        <div class="card-action">
+          <a><%= posts[i].author %></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% } %>
 <%- include("footer.ejs") %>

@@ -1,0 +1,6 @@
+<%- include("header.ejs") %>
+<form action="/edit/done/<%= user.id %>" method="POST">
+    <input type="text" name="name" placeholder="Nazwa użytkownika" value="<%= user.name %>">
+    <input type="password" name="password" placeholder="Hasło">
+    <button type="submit" class="btn waves-effect waves-light">Edytuj</button>
+<%- include("footer.ejs") %>
